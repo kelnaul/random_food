@@ -21,9 +21,19 @@ class RestaurantsController < ApplicationController
   def edit
   end
 
+  # GET /restaurants/search
+  def search
+    @restaurant = Restaurant.new
+    @client = GooglePlaces::Client.new('AIzaSyCnGw9inAh1ze8rVfRoDT1QdsEwypfjxz0')
+    
+
+    @results = @client.spots(-33.8670522, 151.1957362, :types => 'restaurant')
+  end
+
   # POST /restaurants
   # POST /restaurants.json
   def create
+
     @restaurant = Restaurant.new(restaurant_params)
 
     respond_to do |format|
