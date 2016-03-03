@@ -1,9 +1,17 @@
-<%= raw ap (@specific_result) %>
-<%= @photo %>
+
+<div class = "container col s12 m6">
+	<div class = "result">
+		<h1><%= (@specific_result) %></h1>
+	</div>
+	<div class="card">
+	 <img src= <%= (@url) %> border="5">
+	</div>
+
+	<div class = "address">
+		<h2><%= @result.vicinity%></h2>
+	</div>
+</div>
 
 
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>
+
+
