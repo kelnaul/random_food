@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem 'awesome_print'
 gem 'google_places'
+gem 'tzinfo-data'
 gem 'figaro'
 gem 'httparty'
 gem 'materialize-sass'
