@@ -27,11 +27,13 @@ class RestaurantsController < ApplicationController
     @client = GooglePlaces::Client.new('AIzaSyCnGw9inAh1ze8rVfRoDT1QdsEwypfjxz0')
     
 
-    @spot = @client.spots(32.815719, -96.783268, :types => 'restaurant', :exclude => 'meal_takeaway', :radius => 2000)
-    @result = @spot.sample
+    @places = @client.spots(32.815719, -96.783268, :types => 'restaurant', :exclude => 'meal_takeaway', :radius => 5000)
+    @result = @places.sample
     @specific_result = @result.name
-    @photo = @result.photos
-    
+    @photo_id = @result.reference
+    @address = @result.address_components
+    @url = @result.photos[0].fetch_url(600) 
+
 
   end
 
