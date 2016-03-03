@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  devise_for :admins
+  devise_for :users
+
   resources :restaurants do 
     collection do
       get 'search'
     end
   end
+  root 'index#home'
   resources :food_types
   resources :users
   resources :clients

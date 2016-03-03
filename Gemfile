@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 gem 'awesome_print'
 gem 'google_places'
 gem 'tzinfo-data'
+gem 'devise'
+
 gem 'figaro'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
