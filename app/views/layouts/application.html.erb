@@ -4,18 +4,49 @@
 <p class="alert"><%= alert %></p>
 
 <html>
-<head>
-  <title>RandomFood</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<nav>
+	    <div class="nav-wrapper">
+		    <a href="http://localhost:3000" class="brand-logo right">Randnoms</a>
+		    <ul id="nav-mobile" class="left hide-on-med-and-down">
+		        <li><a href="http://localhost:3000">Home</a></li>
+		        <li><a href="localhost:3000/restaurants">Restaurants</a></li>
+	            <li>
+	                <div class="pull-right">
+	                  <% if !user_signed_in? %>
+	                   <%= link_to "Sign Up", new_user_registration_path %>
+	                  <% end %>
+	                </div>          
+	            </li>
+	            <li>
+	                <div class="pull-right">
+	                  <% if user_signed_in? %>
+	                   <%= link_to "Edit Profile", edit_user_registration_path %>
+	                  <% end %>
+	                </div>          
+	            </li>
+	            <li>
+	                <div class="pull-right">
+	                  <% if user_signed_in? %>
+	                    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+	                  <% end %>  
+	                </div>
+	            </li>
+
+		    </ul>
+    	</div>
+	</nav>
+	
+	<head>
+	  <title>RandomFood</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	</head>
 
 
-
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+	<body>
+		<div class="container">
+			<%= yield %>
+		</div>
+	</body>
 </html>
