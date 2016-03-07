@@ -1,8 +1,17 @@
 
+	<br>
+	<div class="center-align">
+		<%= link_to "Next Restaurant?", search_restaurants_path, class:'btn center-align'%>
+	</div>
+
+
+
 <div class = "container col s12 m6">
+
 	<div class = "result">
 		<h1><%= (@specific_result) %></h1>
 	</div>
+
 	<div class="card">
 	 <img src= <%= (@url) %> border="5">
 	</div>
@@ -10,7 +19,10 @@
 	<div class = "address">
 		<h2><%= @result.vicinity%></h2>
 	</div>
+
+
 </div>
+
 
 
 
