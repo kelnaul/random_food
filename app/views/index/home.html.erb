@@ -2,19 +2,18 @@
 
 			  <div class="container s12 m4 l8">
 				  <%= form_tag search_restaurants_path, method: :get do %>
-				  <%= label :address, "Find a Restaurant near : " %>
+				  <%= label :address, "Find a Restaurant near : "%>
 				  <%#= text_field_tag :address, params[:address] %>
 				  <%= text_field_tag :address %>
 
 				  <%= label :distance, "Distance in miles : " %>
 				  <%#= text_field_tag :distance, params[:distance] %> 
 				  <%= text_field_tag :distance %>
-
-				  <%= submit_tag "Submit" %>
+				  <div class = "submit_button">
+				  	<%= image_submit_tag("http://i.imgur.com/okGw3jb.jpg") %>
+				  </div>
 				  <% end %>			  
 			  </div>
-			  <div class = "button"> 
-				<a href = "http://localhost:3000/restaurants/search"> <img src="http://i.imgur.com/okGw3jb.jpg"> </a>
-			  </div>
+			 
 
 
