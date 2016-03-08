@@ -1,14 +1,56 @@
 <!DOCTYPE html>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
 <html>
-<head>
-  <title>RandomFood</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<nav>
+	    <div class="nav-wrapper">
+		    <a href="http://localhost:3000" class="brand-logo right">Randnoms</a>
+		    <ul id="nav-mobile" class="left hide-on-med-and-down">
+		        <li><%= link_to "Home", root_path%></li>
+		        <li><%= link_to "Restaurants", search_restaurants_path%></li>
+	            <li>
+	                <div class="pull-left">
+	                  <% if !user_signed_in? %>
+	                   <%= link_to "Sign Up", new_user_registration_path %>
+	                  <% end %>
+	                </div>          
+	            </li>
+	            <li>
+	                <div class="pull-left">
+	                  <% if user_signed_in? %>
+	                   <%= link_to "Edit Profile", edit_user_registration_path %>
+	                  <% end %>
+	                </div>          
+	            </li>
+	            <li>
+	                <div class="pull-left">
+	                  <% if user_signed_in? %>
+	                    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+	                  <% end %>  
+	                </div>
+	            </li>
 
-<%= yield %>
+		    </ul>
+    	</div>
+	</nav>
+	
+	<head>
+	  <title>RandomFood</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	</head>
 
-</body>
+
+	<body>
+		<div class="container">
+<!-- 			<br>
+			<div class="center-align">
+		        <%#= link_to "Next Restaurant?", search_restaurants_path, class:'btn center-align'%>
+		    </div>
+ -->			<%= yield %>
+		</div>
+	</body>
 </html>

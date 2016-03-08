@@ -1,5 +1,13 @@
 
+	<br>
+	<div class="center-align">
+		<%= link_to "Next Restaurant?", search_restaurants_path, class:'btn center-align'%>
+	</div>
+
+
+
 <div class = "container col s12 m6">
+
 	<% if @specific_place ==nil%>
 		"SORRY - I GOT NOTHING"
 	<% else%>
@@ -25,7 +33,9 @@
 			<h2><%= @place.vicinity%></h2>
 		</div>
 	<%end%>
+
 </div>
+
 
 
 
