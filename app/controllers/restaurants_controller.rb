@@ -40,8 +40,15 @@ class RestaurantsController < ApplicationController
       @restaurant = Restaurant.all
     end
 
+    if params[:address].present?
+      address = params[:address]
+    elsif request.location.data["zipcode"].present?
+      address = request.location.data["zipcode"]
+    else
+      address = "Dallas, TX"
+    end
 
-    @coord = Geocoder.coordinates(params[:address])
+    @coord = Geocoder.coordinates(address)
     puts "#"*1000
     puts @coord
     puts params[:address]
