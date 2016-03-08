@@ -40,13 +40,25 @@ class RestaurantsController < ApplicationController
       @restaurant = Restaurant.all
     end
 
+    if params[:address].present?
+      address = params[:address]
+    elsif request.location.data["zipcode"].present?
+      address = request.location.data["zipcode"]
+    else
+      address = "Dallas, TX"
+    end
 
-    @coord = Geocoder.coordinates(params[:address])
+    @coord = Geocoder.coordinates(address)
     puts "#"*1000
     puts @coord
     puts params[:address]
     puts "#"*1000
-    distance = params[:distance].to_f / 0.00062137
+    if params[:distance].present?
+      distance = params[:distance].to_f
+    else
+      distance = 10
+    end
+    distance = distance  / 0.00062137
 
     @client = GooglePlaces::Client.new('AIzaSyCnGw9inAh1ze8rVfRoDT1QdsEwypfjxz0')
     if @coord.nil?
