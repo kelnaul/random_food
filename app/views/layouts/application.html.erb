@@ -2,52 +2,80 @@
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-
-
 <html>
-	<nav>
-	    <div class="nav-wrapper">
-		    <a href="http://localhost:3000" class="brand-logo right">Randnoms</a>
-		    <ul id="nav-mobile" class="left hide-on-med-and-down">
-		        <li><%= link_to "Home", root_path%></li>
-		        <li><%= link_to "Restaurants", search_restaurants_path%></li>
-	            <li>
-	                <div class="pull-left">
-	                  <% if !user_signed_in? %>
-	                   <%= link_to "Sign Up", new_user_registration_path %>
-	                  <% end %>
-	                </div>          
-	            </li>
-	            <li>
-	                <div class="pull-left">
-	                  <% if user_signed_in? %>
-	                   <%= link_to "Edit Profile", edit_user_registration_path %>
-	                  <% end %>
-	                </div>          
-	            </li>
-	            <li>
-	                <div class="pull-left">
-	                  <% if user_signed_in? %>
-	                    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-	                  <% end %>  
-	                </div>
-	            </li>
 
-		    </ul>
-    	</div>
-	</nav>
+    <head>
+       <title>RandomFood</title>
+         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+         <%= csrf_meta_tags %>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    </head>
+
+
+    <body>
+		<nav>
+		    <div class="nav-wrapper">
+			    <a href="http://localhost:3000" class="brand-logo right">Randnoms</a>
+			    <ul id="nav-mobile" class="left hide-on-med-and-down">
+			        <li><%= link_to "Home", root_path%></li>
+			        <li><%= link_to "Restaurants", search_restaurants_path%></li>
+		            <li>
+		                <div class="pull-left">
+		                  <% if !user_signed_in? %>
+		                   <%= link_to "Sign Up", new_user_registration_path %>
+		                  <% end %>
+		                </div>          
+		            </li>
+		            <li>
+		                <div class="pull-left">
+		                  <% if user_signed_in? %>
+		                   <%= link_to "Edit Profile", edit_user_registration_path %>
+		                  <% end %>
+		                </div>          
+		            </li>
+		            <li>
+		                <div class="pull-left">
+		                  <% if user_signed_in? %>
+		                    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+		                  <% end %>  
+		                </div>
+		            </li>
+
+			    </ul>
+	    	</div>
+		</nav>
 	
-	<head>
-	  <title>RandomFood</title>
-	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	  <%= csrf_meta_tags %>
-	</head>
 
 
-	<body>
+	
 		<div class="container">
-			<%= yield %>
+			  <%= form_tag search_restaurants_path, method: :get do %>
+			  <%= label :address, "Find a Restaurant near : " %>
+			  <%#= text_field_tag :address, params[:address] %>
+			  <%= text_field_tag :address %>
+
+			  <%= label :distance, "Distance in miles : " %>
+			  <%#= text_field_tag :distance, params[:distance] %> 
+			  <%= text_field_tag :distance %>
+
+			  <%= submit_tag "Submit" %>
+			  <% end %>
+
+
+  
+			  <%= yield %>
 		</div>
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      	<script type="text/javascript" src="js/materialize.min.js"></script>
+
 	</body>
 </html>
