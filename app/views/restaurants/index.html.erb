@@ -1,6 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 
+<%= form_tag search_restaurants_path, method: :get do %>
+  <%= label :address, "Find a Restaurant near : " %>
+  <%#= text_field_tag :address, params[:address] %>
+  <%= text_field_tag :address %>
+
+  <%= label :distance, "Distance in miles : " %>
+  <%#= text_field_tag :distance, params[:distance] %> 
+  <%= text_field_tag :distance %>
+
+
+  
+  <%= submit_tag "Search" %>
+<% end %>
+
 <div class = "button"> 
 <a href = "http://localhost:3000/restaurants/search"> <img src="http://i.imgur.com/woKSQwI.jpg"> </a>
 </div>
