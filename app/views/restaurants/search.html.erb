@@ -1,15 +1,30 @@
 
 <div class = "container col s12 m6">
-	<div class = "result">
-		<h1><%= (@specific_result) %></h1>
-	</div>
-	<div class="card">
-	 <img src= <%= (@url) %> border="5">
-	</div>
+	<% if @specific_place ==nil%>
+		"SORRY - I GOT NOTHING"
+	<% else%>
 
-	<div class = "address">
-		<h2><%= @result.vicinity%></h2>
-	</div>
+		<div class = "result">
+			<h1><%= (@specific_place) %></h1>
+			<p><%= @place.inspect %> </p><br>
+			<%#=@detailed_info%>
+			<%=@place[:reference]%>
+
+		</div>
+
+		<div class="card">
+			<% if @url!=nil%>
+		 		<img src= <%= (@url) %> border="5">
+	 		<%else%>
+		 		<img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png">
+	 		<% end%>
+
+		</div>
+
+		<div class = "address">
+			<h2><%= @place.vicinity%></h2>
+		</div>
+	<%end%>
 </div>
 
 

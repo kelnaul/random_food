@@ -1,34 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
+<div class = "container col s12 m6">
+  <div class = "result">
+    <h1><%= (@specific_place) %></h1>
+  </div>
 
+  <div class="card">
+    <img src= <%= (@url) %> border="5">
+  </div>
+
+  <div class = "address">
+    <h2><%= @place.vicinity%></h2>
+  </div>
+</div>
 <p>
   <strong>Address:</strong>
   <%= @restaurant.address %>
 </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @restaurant.phone %>
-</p>
 
-<p>
-  <strong>Hours:</strong>
-  <%= @restaurant.hours %>
-</p>
-
-<p>
-  <strong>Food type:</strong>
-  <%= @restaurant.food_type_id %>
-</p>
-
-<p>
-  <strong>Integer:</strong>
-  <%= @restaurant.integer %>
-</p>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
