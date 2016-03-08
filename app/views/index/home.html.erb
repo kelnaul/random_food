@@ -1,19 +1,26 @@
 <p id="notice"><%= notice %></p>
-
-			  <div class="container s12 m4 l8">
+			<div class = "form_row">
+			  <div class="container s12">
+			  	<div class = "row">
+			      <div class = "col s6">
 				  <%= form_tag search_restaurants_path, method: :get do %>
-				  <%= label :address, "Find a Restaurant near : "%>
+				  <%= label :address, "Find a Restaurant near :", class: "label" %>
 				  <%#= text_field_tag :address, params[:address] %>
 				  <%= text_field_tag :address %>
-
-				  <%= label :distance, "Distance in miles : " %>
+				  </div>
+				  <div class = "col s6">
+				  <%= label :distance, "Distance in miles : ", class: "label" %>
 				  <%#= text_field_tag :distance, params[:distance] %> 
 				  <%= text_field_tag :distance %>
-				  <div class = "submit_button">
-				  	<%= image_submit_tag("http://i.imgur.com/okGw3jb.jpg") %>
 				  </div>
+				</div>
+				  <div class = "submit_button">
+				  	<%= image_submit_tag("http://i.imgur.com/cyTxMpQ.png?1") %>
+				  </div>
+				
 				  <% end %>			  
 			  </div>
+			</div>
 			 
 
 
