@@ -49,8 +49,11 @@ class RestaurantsController < ApplicationController
     distance = params[:distance].to_f / 0.00062137
 
     @client = GooglePlaces::Client.new('AIzaSyCnGw9inAh1ze8rVfRoDT1QdsEwypfjxz0')
-    #@spot = @client.spots(32.815719, -96.783268, :types => 'restaurant', :exclude => 'meal_takeaway', :radius => 5000)
-    @spot = @client.spots(@coord[0], @coord[1], :types => 'restaurant', :exclude => 'meal_takeaway', :radius => distance)
+    if @coord.nil?
+      @spot = @client.spots(32.815719, -96.783268, :types => 'restaurant', :exclude => 'meal_takeaway', :radius => 5000)
+    else
+      @spot = @client.spots(@coord[0], @coord[1], :types => 'restaurant', :exclude => 'meal_takeaway', :radius => distance)
+    end
     @place = @spot.sample
     @specific_place = @place.name
     @photo_id = @place.reference
