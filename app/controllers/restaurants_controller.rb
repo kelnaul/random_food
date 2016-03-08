@@ -53,7 +53,12 @@ class RestaurantsController < ApplicationController
     puts @coord
     puts params[:address]
     puts "#"*1000
-    distance = params[:distance].to_f / 0.00062137
+    if params[:distance].present?
+      distance = params[:distance].to_f
+    else
+      distance = 10
+    end
+    distance = distance  / 0.00062137
 
     @client = GooglePlaces::Client.new('AIzaSyCnGw9inAh1ze8rVfRoDT1QdsEwypfjxz0')
     if @coord.nil?
