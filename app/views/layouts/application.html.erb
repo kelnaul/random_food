@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 <html>
 
     <head>
@@ -24,7 +22,6 @@
 			    <a href="http://localhost:3000" class="brand-logo right">Randnoms</a>
 			    <ul id="nav-mobile" class="left hide-on-med-and-down">
 			        <li><%= link_to "Home", root_path%></li>
-			        <li><%= link_to "Restaurants", search_restaurants_path%></li>
 		            <li>
 		                <div class="pull-left">
 		                  <% if !user_signed_in? %>
@@ -61,5 +58,7 @@
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       	<script type="text/javascript" src="js/materialize.min.js"></script>
 
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
 	</body>
 </html>
