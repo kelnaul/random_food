@@ -4,7 +4,7 @@ gem 'google_places'
 
 gem 'tzinfo-data'
 gem 'devise'
-
+gem 'rails_12factor'
 gem 'figaro'
 gem 'httparty'
 gem 'materialize-sass'
