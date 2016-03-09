@@ -6,12 +6,12 @@
 
 
 
-<div class = "container col s12 m6">
+
 
 	<% if @specific_place ==nil%>
 		"SORRY - I GOT NOTHING"
 	<% else%>
-
+	
 		<div class = "result">
 			<h1><%= (@specific_place) %></h1>
 <!-- 			<p><%= @place.inspect %> </p><br>
@@ -19,19 +19,31 @@
 			<%#=@place[:reference]%>
  -->
 		</div>
-
-		<div class="card">
+	
+      <div class = "row">
+       <div class = "photo">
+		<div class="card col 6" >
 			<% if @url!=nil%>
-		 		<img src= <%= (@url) %> border="5">
+		 		<img src= <%= (@url) %> width="400" border="5">
 	 		<%else%>
 		 		<img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png">
 	 		<% end%>
 
 		</div>
+	   </div>
+	  <div class = "info col 6">
+				<div class = "address">
+					<p class ="flow-text"><%= @place.vicinity%></p>
+				</div>
 
-		<div class = "address">
-			<h2><%= @place.vicinity%></h2>
-		</div>
+				<div class = "rating">
+					<p><span>Google Rating: <%= @place.rating %></span></p>
+				</div>
+	  </div>	
+	</div>
+
+   
+	
 	<%end%>
 
-</div>
+
