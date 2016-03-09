@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.1'
 gem 'awesome_print'
 gem 'google_places'
 
@@ -11,6 +12,7 @@ gem 'materialize-sass'
 gem 'geocoder'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
+
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
