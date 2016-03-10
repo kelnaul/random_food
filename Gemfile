@@ -5,7 +5,7 @@ gem 'google_places'
 
 gem 'tzinfo-data'
 gem 'devise'
-gem 'rails_12factor'
+gem 'omniauth-facebook'
 gem 'figaro'
 gem 'httparty'
 gem 'materialize-sass'
@@ -14,6 +14,9 @@ gem 'geocoder'
 gem 'rails', '4.2.5'
 
 # Use sqlite3 as the database for Active Record
+
+# gem 'sqlite3'
+
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

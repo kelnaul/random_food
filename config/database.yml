@@ -28,3 +28,4 @@ development:
 production:
   <<: *default
   database: knaul
+
