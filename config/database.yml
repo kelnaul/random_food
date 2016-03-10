@@ -23,9 +23,9 @@ default: &default
 
 development:
   <<: *default
-  database: knaul
+  database: randnom_development
 
 production:
   <<: *default
-  database: knaul
+  database: randnom_production
 

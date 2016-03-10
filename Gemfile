@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
+#ruby '2.2.4'
 gem 'awesome_print'
 gem 'google_places'
 

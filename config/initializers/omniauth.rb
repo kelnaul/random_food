@@ -4,8 +4,8 @@ if Rails.env == "production"
   # no production app yet
 	Rails.application.config.middleware.use OmniAuth::Builder do
     	#provider :twitter, 'CONSUMER_KEY', 'CONSUMER_SECRET'
-		provider_ignores_state: true,
-    	provider :facebook, '1040359132702969', 'c6b3675a3c5f8e72123eff48250cc341'  # Find these values on the Facebook App page
+		#provider_ignores_state: true,
+    	provider :facebook, '1040359132702969', 'c6b3675a3c5f8e72123eff48250cc341', {:provider_ignores_state => true}  # Find these values on the Facebook App page
 	end
 
 else
