@@ -16,11 +16,13 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+   
     </head>
     <body>
 		<nav>
 		    <div class="nav-wrapper">
 			    <a href="http://localhost:3000" class="brand-logo right"><img src="http://i.imgur.com/2oSThOa.png?1"></a>
+			     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 			    <ul id="nav-mobile" class="left hide-on-med-and-down">
 			        <li><%= link_to "Home", root_path%></li>
 		            <li>
@@ -46,6 +48,32 @@
 		            </li>
 
 			    </ul>
+
+			    <ul class="side-nav" id="mobile-demo">
+			    	<li><%= link_to "Home", root_path%></li>
+		            <li>
+		                
+		                  <% if !user_signed_in? %>
+		                   <%= link_to "Sign Up", new_user_registration_path %>
+		                  <% end %>
+		                        
+		            </li>
+		            <li>
+		                
+		                  <% if user_signed_in? %>
+		                   <%= link_to "Edit Profile", edit_user_registration_path %>
+		                  <% end %>
+		                         
+		            </li>
+		            <li>
+		                
+		                  <% if user_signed_in? %>
+		                    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+		                  <% end %>  
+		                
+		            </li>
+
+			    </ul>
 	    	</div>
 		</nav>
 	
@@ -57,10 +85,19 @@
         	<%= yield %>
         </div>
 
-		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      	<script type="text/javascript" src="js/materialize.min.js"></script>
+		
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
 
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
+		<script>
+			(function($){
+  				$(function(){
+
+   				 $('.button-collapse').sideNav();
+
+  				}); // end of document ready
+			})(jQuery); // end of jQuery name space
+			
+		</script>
 	</body>
 </html>

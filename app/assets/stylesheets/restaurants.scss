@@ -30,7 +30,7 @@
 .info {
 	text-align:center;
 	margin-top:50px;
-	
+	width:250px;
 	float:right;
 
 
@@ -40,7 +40,10 @@
 
 .address {
 	text-align:center;
-	font-size:20px
+	font-size:19px;
+	overflow-wrap: break-word;
+    word-wrap: break-word;
+	
 	
 }
 
