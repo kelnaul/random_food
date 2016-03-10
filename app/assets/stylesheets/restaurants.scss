@@ -16,15 +16,35 @@
 .result {
 	text-align:center;
 	font-size:25px;
+
 }
 
 .card {
 	text-align:center;
-	padding-top:20px;
+	padding-top:20px;	
+	margin-left:10px;
+	float:left;
 
+}
+
+.info {
+	text-align:center;
+	margin-top:50px;
+	
+	float:right;
+
+
+
+	
 }
 
 .address {
 	text-align:center;
+	font-size:20px
 	
+}
+
+.rating {
+	text-align:center;
+	font-size:18px
 }
