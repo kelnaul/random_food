@@ -4,6 +4,7 @@ gem 'google_places'
 
 gem 'tzinfo-data'
 gem 'devise'
+gem 'omniauth-facebook'
 
 gem 'figaro'
 gem 'httparty'
