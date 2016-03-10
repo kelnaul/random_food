@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   resources :users
   resources :clients
 
-  match '/auth/:provider/callback' => 'sessions#create'
+get '/auth/:provider/callback' => 'sessions#create'
+
+get '/signout' => 'sessions#destroy', :as => :signout
+
+get '/signin' => 'sessions#new', :as => :signin
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
