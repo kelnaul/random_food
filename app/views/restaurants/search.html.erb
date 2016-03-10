@@ -11,7 +11,7 @@
 	<% if @specific_place ==nil%>
 		"SORRY - I GOT NOTHING"
 	<% else%>
-	
+	   
 		<div class = "result">
 			<h1><%= (@specific_place) %></h1>
 <!-- 			<p><%= @place.inspect %> </p><br>
@@ -20,9 +20,9 @@
  -->
 		</div>
 	
-      <div class = "row">
+      
        <div class = "photo">
-		<div class="card col 6" >
+		<div class="card" >
 			<% if @url!=nil%>
 		 		<img src= <%= (@url) %> width="400" border="5">
 	 		<%else%>
@@ -31,18 +31,17 @@
 
 		</div>
 	   </div>
-	  <div class = "info col 6">
+	  <div class = "info">
 				<div class = "address">
 					<p class ="flow-text"><%= @place.vicinity%></p>
 				</div>
 
 				<div class = "rating">
-					<p><span>Google Rating: <%= @place.rating %></span></p>
+					<p class= "flow-text">Google Rating: <%= @place.rating %></p>
 				</div>
 	  </div>	
 	</div>
 
-   
 	
 	<%end%>
 
