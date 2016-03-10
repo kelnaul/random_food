@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :food_types
   resources :users
   resources :clients
+
+  match '/auth/:provider/callback' => 'sessions#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
