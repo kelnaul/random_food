@@ -48,6 +48,7 @@ class RestaurantsController < ApplicationController
       address = "Dallas, TX"
     end
 
+    Geocoder::Configuration.timeout = 30
     @coord = Geocoder.coordinates(address)
     puts "#"*1000
     puts @coord
