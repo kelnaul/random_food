@@ -23,10 +23,10 @@ default: &default
 
 development:
   <<: *default
-  database: randnom_production
+  database: knaul
 
 production:
   <<: *default
-  database: randnom_production
+  database: knaul
 
 
