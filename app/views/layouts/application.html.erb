@@ -33,6 +33,13 @@
 		                </div>          
 		            </li>
 		            <li>
+		            	<div class="pull-left">
+		            		<% if !user_signed_in? %>
+		            		<%= link_to "Sign In",
+		            		new_user_session_path %>
+		            		<% end %>
+		            </li>
+		            <li>
 		                <div class="pull-left">
 		                  <% if user_signed_in? %>
 		                   <%= link_to "Edit Profile", edit_user_registration_path %>
