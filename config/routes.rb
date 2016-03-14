@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :admins
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  resources :restaurants do 
+  resources :restaurants do
     collection do
       get 'search'
     end
@@ -12,10 +12,17 @@ Rails.application.routes.draw do
   resources :users
   resources :clients
 
-get '/auth/:provider/callback' => 'sessions#create'
-get '/signout' => 'sessions#destroy', :as => :signout
-get '/signin' => 'sessions#new', :as => :signin
-get '/auth/failure' => 'sessions#failure'
+	get '/auth/:provider/callback' => 'sessions#create'
+	get '/signout' => 'sessions#destroy', :as => :signout
+	get '/signin' => 'sessions#new', :as => :signin
+	get '/auth/failure' => 'sessions#failure'
+
+	#devise_scope :user do
+	#	delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+	#end
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
